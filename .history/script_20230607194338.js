@@ -17,9 +17,6 @@ class Hero {
   moveLeft() {
     this.left -= 30;
   }
-  moveTop() {
-    this.top -= 30;
-  }
 }
 let hero = new Hero(
   "https://danviet.mediacdn.vn/upload/4-2018/images/2018-12-04/Dan-mang-phat-sot-voi-con-vat-giong-y-het-Pikachu-poty_pikachu_3-1543909375-width630height400.jpg",
@@ -28,19 +25,14 @@ let hero = new Hero(
   200
 );
 function start() {
-  if (hero.left < window.innerWidth - hero.size && hero.top <= 20) {
+  if (hero.left < window.innerWidth - hero.size) {
     hero.moveRight();
-  } else if (
-    hero.top < window.innerHeight - hero.size &&
-    hero.left >= window.innerWidth - hero.size
-  ) {
+  } else if (hero.top < window.innerHeight - hero.size) {
     hero.moveBottom();
-  } else if (hero.top >= window.innerHeight - hero.size && hero.left > 0) {
+  } else if (hero.left > 30) {
     hero.moveLeft();
-  } else if (hero.left <= 0 && hero.top > 20) {
-    hero.moveTop();
   }
   document.getElementById("game").innerHTML = hero.getHeroElement();
-  setTimeout(start, 50);
+  setTimeout(start, 100);
 }
 start();

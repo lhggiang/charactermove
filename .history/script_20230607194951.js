@@ -41,6 +41,6 @@ function start() {
     hero.moveTop();
   }
   document.getElementById("game").innerHTML = hero.getHeroElement();
-  setTimeout(start, 50);
+  setTimeout(start, 100);
 }
 start();
